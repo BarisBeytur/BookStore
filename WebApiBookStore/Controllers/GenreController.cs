@@ -13,6 +13,9 @@ using static WebApiBookStore.Application.GenreOperations.Quaries.GetGenreDetails
 
 namespace WebApiBookStore.Controllers
 {
+    /// <summary>
+    /// Bu controller kitap türleri ile ilgili işlemleri yapmaktadır.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class GenreController : Controller
@@ -26,6 +29,10 @@ namespace WebApiBookStore.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Bu metot tüm kitap türlerini listeler.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetGenres()
         {
@@ -34,6 +41,11 @@ namespace WebApiBookStore.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Bu metot id parametresi ile gönderilen kitap türünün detaylarını getirir.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("id")]
         public IActionResult GetIdGenres(int id)
         {
@@ -50,6 +62,11 @@ namespace WebApiBookStore.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Bu metot yeni bir kitap türü ekler.
+        /// </summary>
+        /// <param name="createGenres"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult AddGenre([FromBody] CreateGenreModel createGenres)
         {
@@ -64,6 +81,12 @@ namespace WebApiBookStore.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Bu metot id parametresi ile gönderilen kitap türünü günceller.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updateGenre"></param>
+        /// <returns></returns>
         [HttpPut("id")]
         public IActionResult UpdateGenre(int id, [FromBody] UpdateGenreModel updateGenre)
         {
@@ -79,6 +102,11 @@ namespace WebApiBookStore.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Bu metot id parametresi ile gönderilen kitap türünü siler.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("id")]
         public IActionResult DeleteGenre(int id)
         {

@@ -13,6 +13,9 @@ using static WebApiBookStore.Application.AuthorOperations.Quaries.GetAuthorDetai
 
 namespace WebApiBookStore.Controllers
 {
+    /// <summary>
+    /// Bu controller sınıfı Author ile ilgili CRUD işlemlerini yapmaktadır.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class AuthorController : Controller
@@ -26,6 +29,10 @@ namespace WebApiBookStore.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Bu metot tüm yazarları listeler.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetAuthor()
         {
@@ -35,6 +42,11 @@ namespace WebApiBookStore.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Bu metot yazarın detaylarını getirir.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("id")]
         public IActionResult GetIdAuthor(int id)
         {
@@ -52,6 +64,11 @@ namespace WebApiBookStore.Controllers
 
         }
 
+        /// <summary>
+        /// Bu metot yeni bir yazar ekler.
+        /// </summary>
+        /// <param name="createAuthor"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult AddAuthor([FromBody] CreateAuthorModel createAuthor)
         {
@@ -66,6 +83,12 @@ namespace WebApiBookStore.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Bu metot yazarı günceller.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPut("id")]
         public IActionResult UpdateAuthor(int id,[FromBody] UpdateAuthorsModel model)
         {
@@ -81,6 +104,11 @@ namespace WebApiBookStore.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Bu metot yazarı siler.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("id")]
         public IActionResult DeleteAuthor(int id)
         {

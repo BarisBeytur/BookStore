@@ -11,6 +11,9 @@ using static WebApiBookStore.Application.UserOperations.Commands.CreateUsers.Cre
 
 namespace WebApiBookStore.Controllers
 {
+    /// <summary>
+    /// Bu controller kullanıcı işlemlerini gerçekleştirir.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class UserController : Controller
@@ -26,6 +29,11 @@ namespace WebApiBookStore.Controllers
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Bu metot kullanıcı oluşturur.
+        /// </summary>
+        /// <param name="newUser"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateUser([FromBody] CreateUserModel newUser)
         {
@@ -37,6 +45,11 @@ namespace WebApiBookStore.Controllers
 
         }
 
+        /// <summary>
+        /// Bu metot token oluşturur.
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
         [HttpPost("connect/token")]
         public ActionResult<Token> CreateToken([FromBody] CreateTokenModel login)
         {

@@ -18,6 +18,9 @@ using static WebApiBookStore.Application.BookOperations.Commands.UpdateBooks.Upd
 
 namespace WebApi.AddController
 {
+    /// <summary>
+    /// Bu controller kitaplar ile ilgili CRUD iþlemlerini yapmaktadýr.
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("[controller]")]
@@ -32,7 +35,10 @@ namespace WebApi.AddController
             _mapper = mapper;
         }
 
-
+        /// <summary>
+        /// Bu metot tüm kitaplarý listelemektedir.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetBooks()
         {
@@ -42,6 +48,11 @@ namespace WebApi.AddController
         }
 
 
+        /// <summary>
+        /// Bu metot id parametresi ile gönderilen kitabýn detaylarýný getirir.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult GetIdBook(int id)
         {
@@ -58,14 +69,12 @@ namespace WebApi.AddController
 
             return Ok(result);
         }
-        //[HttpGet]
-        //public Book Get([FromQuery] string id)
-        //{
-        //    var book = BookList.Where(book => book.Id == Convert.ToInt32(id)).SingleOrDefault();
-        //    return (book);
-        //}
 
-
+        /// <summary>
+        /// Bu metot yeni bir kitap eklemektedir.
+        /// </summary>
+        /// <param name="NewBook"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult AddBook([FromBody] CreateBookModel NewBook)
         {
@@ -77,20 +86,15 @@ namespace WebApi.AddController
             validator.ValidateAndThrow(command);
             command.Handle();
 
-                //if (!result.IsValid)
-                //{
-                //    foreach ( var item in result.Errors)
-                //    {
-                //        Console.WriteLine("Property : " + item.PropertyName + " - Error Message : " + item.ErrorMessage);
-                //    }
-                //}
-
-      
-
             return Ok();
         }
 
-
+        /// <summary>
+        /// Bu metot id parametresi ile gönderilen kitabý güncellemektedir.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UpdateBook"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult UpdateBook(int id, [FromBody] UpdateBookViewModel UpdateBook)
         {
@@ -109,7 +113,11 @@ namespace WebApi.AddController
             return Ok();
         }
 
-
+        /// <summary>
+        /// Bu metot id parametresi ile gönderilen kitabý silmektedir.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
