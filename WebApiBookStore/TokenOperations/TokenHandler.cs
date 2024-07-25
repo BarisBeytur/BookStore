@@ -8,6 +8,9 @@ using WebApiBookStore.TokenOperations.Models;
 
 namespace WebApiBookStore.TokenOperations
 {
+    /// <summary>
+    /// Bu sınıf, token oluşturma işlemlerini gerçekleştirir.
+    /// </summary>
     public class TokenHandler
     {
         public IConfiguration Configuration { get; set; }
@@ -34,7 +37,7 @@ namespace WebApiBookStore.TokenOperations
                 );
 
 
-            //Token Üretiliyor
+            // Bu aşamada token üretilir
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 
             tokenModel.AccessToken = tokenHandler.WriteToken(securityToken);

@@ -9,6 +9,9 @@ using WebApiBookStore.Services;
 
 namespace WebApiBookStore.Middlewares
 {
+    /// <summary>
+    /// Bu sınıf, uygulamada oluşan hataları yakalayarak, loglama işlemlerini gerçekleştirir.
+    /// </summary>
     public class CustomExceptionMiddleware
     {
         private readonly RequestDelegate _next;

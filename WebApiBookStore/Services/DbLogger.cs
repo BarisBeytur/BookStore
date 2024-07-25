@@ -2,6 +2,9 @@
 
 namespace WebApiBookStore.Services
 {
+    /// <summary>
+    /// Bu sınıf, veritabanına loglama işlemlerini gerçekleştirir.
+    /// </summary>
     public class DbLogger : ILoggerService
     {
 
